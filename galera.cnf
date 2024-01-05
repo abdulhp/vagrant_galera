@@ -3,10 +3,17 @@ binlog_format=ROW
 default-storage-engine=innodb
 innodb_autoinc_lock_mode=2
 bind-address=0.0.0.0
+
+general_log_file="/var/log/mysql/general_log.log"
+general_log=1
             
 # Galera Provider Configuration
 wsrep_on=ON
 wsrep_provider=/usr/lib/galera/libgalera_smm.so 
+
+# Galera
+wsrep_log_conflicts=ON
+wsrep_provider_options="cert.log_conflicts=ON"
 
 # Galera Cluster Configuration
 wsrep_cluster_name="test_cluster"
